@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>สุขสันต์วันครบรอบ 💝</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="text-white m-0 p-0 overflow-x-hidden">
+
+  <!-- Particle Background -->
+  <div class="particle-bg fixed top-0 left-0 w-full h-full -z-10" id="particle-wrapper">
+    <canvas id="particle-canvas" class="w-full h-full pointer-events-none absolute inset-0"></canvas>
+  </div>
+
+  <!-- Page Sections Container -->
+  <div id="app" class="relative z-10 w-full">
+
+    <!-- Home Section -->
+    <section id="section-home" class="page-section active">
+      <div class="relative w-full h-screen flex flex-col items-center justify-center p-5 text-center">
+        <h1 class="text-7xl mb-3">🎁</h1>
+        <h1 class="text-4xl text-blue-950 font-bold">สุขสันต์วันครบรอบ 💝</h1>
+        <p
+          class="text-lg border border-pink-500 rounded-full px-4 py-1 bg-pink-500/10 text-white mt-3 backdrop-blur-sm">
+          1m - 11 เมษายน 2567</p>
+
+        <p class="mt-5 text-white">เค้ามีอะไรจะให้ดูด้วยแหละ อยากดูไหม?</p>
+
+        <div class="flex gap-2">
+          <button id="btn-no"
+            class="mt-5 px-4 py-2 border border-pink-500 rounded-lg text-pink-500 hover:bg-pink-600 hover:text-white transition-colors backdrop-blur-sm">
+            ไม่อยากดูเลยอ่ะ
+          </button>
+
+          <button onclick="goToPage('section-page1')"
+            class="mt-5 px-4 py-2 bg-pink-500 border border-pink-500 rounded-lg text-white hover:bg-pink-600 transition-colors">
+            อยากดูๆ
+          </button>
+        </div>
+      </div>
+
+      <!-- Alert Modal -->
+      <div id="alert-modal"
+        class="fixed top-0 left-0 w-screen h-screen bg-black/60 p-5 hidden flex-col items-center z-50">
+        <div class="bg-white w-full max-w-sm rounded-lg p-5 mt-36 text-black text-center">
+          <h1 class="text-2xl font-bold mb-3">เสียใจด้วยแต่นี่คือการบังคับให้ดู</h1>
+          <p>ดูเถอะน้าาา ที่รักกก เค้าตั้งใจทำมาก 🥺</p>
+          <button onclick="goToPage('section-page1')"
+            class="mt-3 px-4 py-2 w-full bg-pink-500 border border-pink-500 rounded-lg text-white hover:bg-pink-600 transition-colors text-center cursor-pointer">
+            ดูเลยยย!
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Page 1 -->
+    <section id="section-page1" class="page-section hidden">
+      <main class="relative w-full min-h-screen flex flex-col items-center justify-center p-5 text-center">
+        <h1 class="text-3xl font-bold mb-5 drop-shadow-md">Morning! ค้าบที่รัก</h1>
+        <div class="bg-black/40 p-4 rounded-lg backdrop-blur-sm max-w-lg mb-5 text-left">
+          <p class="mb-3">สวัสดีตอนเช้าครับที่รัก เค้าหวังว่าเธอจะได้อ่านข้อความนี้ตอนเช้านะ</p>
+          <p>ตอนนี้เค้าน่าจะยังไม่ตื่น แต่เค้าก็อยากจะให้ของขวัญให้เธอได้เร็วที่สุด ตอนแรกเค้าว่าจะทำเพลงให้เธอ
+            แต่เค้าทำไม่ทันจริงๆ เค้าขอโทษนะ 🥺 เค้าเลยตั้งใจเว็บตัวนี้ให้เธอ เค้าตั้งใจทำมากๆ เลยนะ ไม่ได้ใช้ AI
+            เลยด้วย</p>
+          <p class="mt-3 font-semibold text-center text-pink-300">อยากดูหน้าต่อไปไหม ลองกดไปดูสิ</p>
+        </div>
+        <button onclick="goToPage('section-page2')"
+          class="px-4 py-2 w-full max-w-sm bg-pink-500 border border-pink-500 rounded-lg text-white hover:bg-pink-600 transition-colors text-center">
+          let's goooo!
+        </button>
+      </main>
+    </section>
+
+    <!-- Page 2 -->
+    <section id="section-page2" class="page-section hidden">
+      <main class="relative w-full min-h-screen flex flex-col items-center justify-center p-5 text-center">
+        <h1 class="text-3xl font-bold mb-5 drop-shadow-md">รู้ไหมเค้าชอบเธอตรงไหนที่สุด</h1>
+        <div class="mb-3 backdrop-blur-sm">
+          <p>ตรงนี้ไง <button id="btn-view-details"
+              class="underline text-pink-400 hover:text-pink-300 ml-1">กดดูสิ</button></p>
+        </div>
+
+        <div id="details-box"
+          class="bg-white/90 text-black rounded-lg p-5 w-full max-w-md mb-3 hidden transform transition-all">
+          <img src="image/IMG_0109.png" class="rounded-lg mb-3 shadow-md" width="100%" alt="Image">
+          <div class="text-left space-y-2">
+            <p>เค้าชอบเธอที่เธอเป็นตัวของตัวเองมากๆเลยนะ</p>
+            <p>ไม่ว่าจะเป็นตอนที่เธอทำอะไรอยู่ หรือจะเป็นตอนที่เธอแสดงออกมาในแบบที่เธอเป็น เค้าก็ชอบเธอมากๆเลย</p>
+            <p>เค้าชอบที่เธอมีความสุข เค้าชอบที่เธอยิ้ม เค้าชอบที่เธอหัวเราะ เค้าชอบทุกอย่างเกี่ยวกับเธอเลย</p>
+            <p>และที่ชอบที่สุดเลยคือรอยยิ้มเธอ</p>
+            <p class="font-bold text-pink-600 text-center mt-2">เค้าอยากให้เธอยิ้มแบบนี้ไปตลอดเลยนะ</p>
+          </div>
+        </div>
+
+        <button onclick="goToPage('section-page3')"
+          class="px-4 py-2 w-full max-w-sm bg-pink-500 border border-pink-500 rounded-lg text-white hover:bg-pink-600 transition-colors text-center mt-2">
+          ดูต่อเลยยย!
+        </button>
+      </main>
+    </section>
+
+    <!-- Page 3 -->
+    <section id="section-page3" class="page-section hidden">
+      <main class="relative w-full min-h-screen flex flex-col items-center justify-center p-5 text-center">
+        <h1 class="text-3xl font-bold mb-5 drop-shadow-md">รักเธอมากๆ เลยนะ</h1>
+
+        <div class="mb-5 bg-black/40 p-5 rounded-lg backdrop-blur-sm max-w-md text-left space-y-3">
+          <p>ไม่รู้ว่าเธอจะเบื่อกับคำนี้หรือป่าวนะ</p>
+          <p>เค้ากลัวว่าเธอจะเบื่อคำนี้ และมองว่าเป็นคำธรรมดาที่ไม่พิเศษอะไร แต่คำนี้เป็นคำที่ออกมาจากใจเค้าจริงๆ
+            ทุกครั้งที่พูดเลยนะ</p>
+          <p>เค้ากลัวจริงๆ นะ กลัวว่าวันนึงเธอจะเบื่อเค้า</p>
+          <p>กลัวว่าวันนึงเธอจะมองเค้าด้วยสายตาที่ไม่ใช่ความรัก</p>
+          <p>กลัวว่าเธอจะลืมเค้า กลัวว่าเธอจะหายไป</p>
+        </div>
+
+        <button onclick="goToPage('section-page4')"
+          class="px-4 py-2 w-full max-w-sm bg-pink-500 border border-pink-500 rounded-lg text-white hover:bg-pink-600 transition-colors text-center">
+          ต่อกันต่อไป
+        </button>
+      </main>
+    </section>
+
+    <!-- Page 4 -->
+    <section id="section-page4" class="page-section hidden">
+      <main class="relative w-full min-h-screen flex flex-col items-center py-10 px-5 text-center">
+        <h1 class="text-3xl font-bold mb-8 drop-shadow-md mt-10">เธอจำพวกนี้ได้ไหม</h1>
+
+        <div class="mb-5 w-full flex flex-col items-center gap-4">
+
+          <div class="grid grid-cols-3 gap-3 bg-white/95 text-black rounded-xl p-4 w-full max-w-md shadow-lg">
+            <div class="col-span-1 rounded overflow-hidden flex items-center"><img src="image/IMG_0003.webp"
+                class="w-full object-cover" alt="Memory"></div>
+            <div class="col-span-2 text-left flex flex-col justify-center">
+              <h1 class="text-lg font-bold text-pink-600 mb-1">รูปแรกในเครื่อง</h1>
+              <p class="text-sm text-gray-700">รูปแรกที่เค้าถ่ายลงไปในเครื่องก็คือรูปเธอเลย
+                ถึงตอนนั้นเราจะยังเป็นแค่เพื่อนกันก็เถอะนะ 😅</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-3 gap-3 bg-white/95 text-black rounded-xl p-4 w-full max-w-md shadow-lg">
+            <div class="col-span-1 rounded overflow-hidden flex items-center"><img src="image/IMG_0103.webp"
+                class="w-full object-cover" alt="Memory"></div>
+            <div class="col-span-2 text-left flex flex-col justify-center">
+              <h1 class="text-lg font-bold text-pink-600 mb-1 leading-tight">เราเริ่มตัวติดกันแล้วตอนนี้</h1>
+              <p class="text-sm text-gray-700 mt-1">ช่วงนี้เป็นช่วงที่เราไปไหนมาไหนด้วยกันบ่อยมากกก แบบตัวติดกันเลย
+                ถึงแม้ว่าตอนอยู่มอเธอจะไม่ค่อยคุยกับเค้าเท่าไหร่ แต่พอเลิกเรียนทีไรเราก็ไม่ห่างกันเลย
+                ช่วงนี้แหละที่เค้าชอบเธอเข้าแล้วจริงๆ</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-3 gap-3 bg-white/95 text-black rounded-xl p-4 w-full max-w-md shadow-lg">
+            <div class="col-span-1 rounded overflow-hidden flex items-center"><img src="image/IMG_0106.webp"
+                class="w-full object-cover" alt="Memory"></div>
+            <div class="col-span-2 text-left flex flex-col justify-center">
+              <h1 class="text-lg font-bold text-pink-600 mb-1">ช่วงเค้าแอบชอบ</h1>
+              <p class="text-sm text-gray-700">ช่วงนี้แหละนี้แหละ ที่เค้าได้เห็นมุมใหม่ๆ ของเธอที่ยังไม่เคยเห็นมาก่อน
+                ทำให้เค้าคิดเลยว่าถ้าปล่อยผู้หญิงคนนี้ไปคงเสียใจมากแน่ๆ ต่อให้ตอนนั้นเป็นแค่เพื่อนก็เถอะ</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-3 gap-3 bg-white/95 text-black rounded-xl p-4 w-full max-w-md shadow-lg">
+            <div class="col-span-1 rounded overflow-hidden flex items-center"><img src="image/IMG_0152.webp"
+                class="w-full object-cover" alt="Memory"></div>
+            <div class="col-span-2 text-left flex flex-col justify-center">
+              <h1 class="text-lg font-bold text-pink-600 mb-1">ไปเล่นบ้านเค้าครั้งแรก</h1>
+              <p class="text-sm text-gray-700">ภาพนี้คือเป็นตอนช่วงงาน 2 ราชช่วงที่รอซ้อม เราไม่รู้จะไปไหนกัน
+                เค้าเลยช่วนเธอมาเล่นที่บ้านซะเลย😂 หลังจากนั้นมาเราก็มาเล่นที่บ้านเค้าบ่อยขึ้น</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-3 gap-3 bg-white/95 text-black rounded-xl p-4 w-full max-w-md shadow-lg">
+            <div class="col-span-1 rounded overflow-hidden flex items-center"><img src="image/IMG_0182.webp"
+                class="w-full object-cover" alt="Memory"></div>
+            <div class="col-span-2 text-left flex flex-col justify-center">
+              <h1 class="text-lg font-bold text-pink-600 mb-1">กินหมูทะด้วยกัน</h1>
+              <p class="text-sm text-gray-700">ตอนนี้เราไปกินหมูทะด้วยกันครั้งแรก แบบแค่ 2 คน ซึ่งอร่อยมากก
+                ไม่รู้ทำไมแต่อร่อยสุดๆ ถือว่าเป็นมื้อโปรดอีกมื้อนึงเลย</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-3 gap-3 bg-white/95 text-black rounded-xl p-4 w-full max-w-md shadow-lg">
+            <div class="col-span-1 rounded overflow-hidden flex items-center"><img src="image/IMG_0251.webp"
+                class="w-full object-cover" alt="Memory"></div>
+            <div class="col-span-2 text-left flex flex-col justify-center">
+              <h1 class="text-lg font-bold text-pink-600 mb-1">ไปดูหนังด้วยกันอีกครั้ง</h1>
+              <p class="text-sm text-gray-700">ครั้งนี้เป็นครั้งที่สองที่เราได้ไปดูหนังด้วยกัน หนังสนุกมาก
+                เค้าร้องไห้ด้วยแหละแต่แอ็คอยู่😅 และที่สำคัญเราได้จับมือกันด้วยแหละอิอิ มือเค้าเปียกมากจำได้เลย</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-3 gap-3 bg-white/95 text-black rounded-xl p-4 w-full max-w-md shadow-lg">
+            <div class="col-span-1 rounded overflow-hidden flex items-center"><img src="image/IMG_0312-2.webp"
+                class="w-full object-cover" alt="Memory"></div>
+            <div class="col-span-2 text-left flex flex-col justify-center">
+              <h1 class="text-lg font-bold text-pink-600 mb-1">เธอหลับที่บ้านเค้าครั้งแรก</h1>
+              <p class="text-sm text-gray-700">เป็นครั้งแรกเลยที่นอนหลับที่บ้านเค้า แบบสบายใจ
+                ตอนนั้นทำให้เค้ารู้เลยว่าเธอคงรู้สึกสบายใจและไว้ใจเค้ามาก เลยกล้าที่จะหลับตอนอยู่กับเค้าแบบนี้</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-3 gap-3 bg-white/95 text-black rounded-xl p-4 w-full max-w-md shadow-lg">
+            <div class="col-span-1 rounded overflow-hidden flex items-center"><img src="image/IMG_0403.webp"
+                class="w-full object-cover" alt="Memory"></div>
+            <div class="col-span-2 text-left flex flex-col justify-center">
+              <h1 class="text-lg font-bold text-pink-600 mb-1">จุ๊บแรก😘</h1>
+              <p class="text-sm text-gray-700">รูปนี้จะกลับมาดูกี่ทีก็เขินไม่หาย
+                เป็นครั้งที่เค้าทำใจจะทำอะไรสักอย่างนานมาก ซึ่งนั่นก็คือการจุ๊บหน้าผากเธอ
+                ตอนนั้นในหัวมีอยู่สองอย่าวคือเธอจะไม่ชอบและจากเค้าไป กับอีกอย่างคือเธอจะได้รู้ความรู้สึกของเค้า
+                แต่ผิดคาด! เธอไม่รู้สึกตัว55555 แต่หลังจากนั้นมาเค้าก็ได้จุ๊บเธอบ่อยขึ้นแบบที่เธอรู้ตัว
+                แต่เรายังเป็นเพื่อนกันอยู่!!!!!</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-3 gap-3 bg-white/95 text-black rounded-xl p-4 w-full max-w-md shadow-lg">
+            <div class="col-span-1 rounded overflow-hidden flex items-center"><img src="image/IMG_0580.webp"
+                class="w-full object-cover" alt="Memory"></div>
+            <div class="col-span-2 text-left flex flex-col justify-center">
+              <h1 class="text-lg font-bold text-pink-600 mb-1">จุดเริ่มต้นของทุกอย่าง</h1>
+              <p class="text-sm text-gray-700">วันนี้เป็นคืนแรกที่เราได้นอนด้วยกัน เป็นเพราะว่าฝนตกเธอเลยกลับหอไม่ได้
+                แต่พอฝนหยุดเค้าก็ไม่ยอมบอกเธอว่าหยุดและปล่อยให้เธออนิเมะต่อไป จำได้เลยว่าเค้าพาเธอดูเรื่อง spy x family
+                ซึ่งไล่ดูตั้งแต่ตอนแรกยันตอนสุดท้ายของซีซั่น พอดูจบมันก็ดึกแล้วเค้าเลยให้เธอนอนที่ห้องเค้าในคืนนี้
+                ซึ่งเธอก็ยอมนอนด้วย และยอมให้เค้ากอดทั้งคืนเลย</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-3 gap-3 bg-white/95 text-black rounded-xl p-4 w-full max-w-md shadow-lg">
+            <div class="col-span-1 rounded overflow-hidden flex items-center"><img src="image/IMG_0681.webp"
+                class="w-full object-cover" alt="Memory"></div>
+            <div class="col-span-2 text-left flex flex-col justify-center">
+              <h1 class="text-lg font-bold text-pink-600 mb-1">กอดแรกจากเธอ</h1>
+              <p class="text-sm text-gray-700">หลังจากนั้นเธอก็เริ่มมานอนกับเค้าแทบทุกวัน และภาพนี้เป็นภาพที่เธอนอนดูพวก
+                IG Tiktok กับเค้า แล้วเธอก็หลับไป เธอหลับไปสักพักเธอก็ยกแขนมากอดเค้าเฉยเลย
+                ตอนนั้นเค้ารู้สีกใจฟูสและอบอุ่นมากๆ</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-3 gap-3 bg-white/95 text-black rounded-xl p-4 w-full max-w-md shadow-lg">
+            <div class="col-span-1 rounded overflow-hidden flex items-center"><img src="image/IMG_0697.webp"
+                class="w-full object-cover" alt="Memory"></div>
+            <div class="col-span-2 text-left flex flex-col justify-center">
+              <h1 class="text-lg font-bold text-pink-600 mb-1 leading-tight">ช่วงเวลาก่อนจุดคลายแม็ก</h1>
+              <p class="text-sm text-gray-700 mt-1">เราเริ่มเปลี่ยนจากมานอนด้วยกันแทบทุกวันเป็นทุกวัน
+                จนเธอต้องเอาชุดนอนมาไว้ที่บ้านเค้า อยู่กินด้วยกันไปซื่้อของด้วยกัน ทำกับข้าวให้กันกิน
+                เป็นช่วงเวลาที่ดีมากๆเลยแหละ ตอนนั้นคิดเลยนะว่า ถ้าไม่ได้เป็นแฟนแต่ได้อยู่แบบนี้ด้วยกันไปเรื่อยๆ
+                ก็ดีเหมือนกัน</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-3 gap-3 bg-white/95 text-black rounded-xl p-4 w-full max-w-md shadow-lg">
+            <div class="col-span-1 rounded overflow-hidden flex items-center"><img src="image/IMG_0763.webp"
+                class="w-full object-cover" alt="Memory"></div>
+            <div class="col-span-2 text-left flex flex-col justify-center">
+              <h1 class="text-lg font-bold text-pink-600 mb-1 leading-tight">คืนสุดท้ายก่อนจุดคลายแม็ก</h1>
+              <p class="text-sm text-gray-700 mt-1">ภาพนี้เป็นคืนสุดท้ายแล้วที่จะเราจะไม่ได้ใช้คำเวลาเพื่อน
+                เพราะคืนต่อมาเป็นคืนสุดเสวเลยแหละ แต่จริงๆ ก่อนหน้านี้เธอทำเค้าเสวไปหลายรอบรอบละ
+                จนมาถึงคืนต่อจากนี้ที่เธอทำเค้าเสวขึ้นสุด5555555</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-3 gap-3 bg-white/95 text-black rounded-xl p-4 w-full max-w-md shadow-lg">
+            <div class="col-span-1 rounded overflow-hidden flex items-center"><img src="image/IMG_0782.webp"
+                class="w-full object-cover" alt="Memory"></div>
+            <div class="col-span-2 text-left flex flex-col justify-center">
+              <h1 class="text-lg font-bold text-pink-600 mb-1">ภาพแรกของการเป็นแฟน</h1>
+              <p class="text-sm text-gray-700">นี่คือภาพแรกที่เค้าถ่ายหลังจากได้เป็นแฟนกันซึ่งเป็นอะไรที่วิเศษที่สุดเลย
+                และนี่ก็เป็นแค่ภาพแรก ต่อจากนี้จะมีอีกเยอะเลย และจะมีตลอดไป ตั้งแต่วันนั้นถึงตอนนี้</p>
+            </div>
+          </div>
+
+        </div>
+
+        <p class="mb-3 font-semibold drop-shadow mt-4">ใกล้จบแล้วน้าาาา</p>
+        <button onclick="goToPage('section-page5')"
+          class="px-4 py-2 w-full max-w-sm bg-pink-500 border border-pink-500 rounded-lg text-white hover:bg-pink-600 transition-colors text-center shadow-lg">
+          ไปกันต่อ
+        </button>
+      </main>
+    </section>
+
+    <!-- Page 5 -->
+    <section id="section-page5" class="page-section hidden">
+      <main class="relative w-full min-h-screen flex flex-col items-center justify-center p-5 text-center">
+        <h1 class="text-3xl font-bold mb-6 drop-shadow-md px-2 leading-relaxed">
+          ตั้งแต่ที่มีเธอเป็นแฟน<br>เค้าไม่เคยเสียใจเลยนะ</h1>
+
+        <div class="mb-6 bg-black/40 p-5 rounded-lg backdrop-blur-sm max-w-md text-left space-y-4">
+          <p>แต่กลับกัน เค้ามีความสุขมากๆ ที่มีเธออยู่ เค้าชอบรอยยิ้ม เสียงหัวเราะ ของเธอที่สุด</p>
+          <p>อยากอยู่ดูแล อยากคอยโอ๋ในวันที่เธอเศร้า อยากปลอบในวันที่เธอร้องไห้ อยากกอดในวันที่เธอเหนื่อย
+            อยากอยู่กับเธอในทุกช่วงเวลา</p>
+          <p>ทุกวันที่มีเธอ เป็นวันที่วิเศษที่สุด ไม่ว่าจะยังไงเค้าขอให้เราอยู่ด้วยกันแบบนี้ตลอดไปนะ ไม่ใช่แค่ 1 เดือน
+            หรือ 1 ปี แต่ตลอดไป <b class="text-pink-400 font-bold">เค้ารักเธอนะครับ</b></p>
+        </div>
+
+        <button onclick="goToPage('section-page6')"
+          class="px-4 py-2 w-full max-w-sm bg-pink-500 border border-pink-500 rounded-lg text-white hover:bg-pink-600 transition-colors text-center">
+          ต่อไปเป็นหน้าสุดท้ายแล้วนะ
+        </button>
+      </main>
+    </section>
+
+    <!-- Page 6 -->
+    <section id="section-page6" class="page-section hidden">
+      <main class="relative w-full min-h-screen flex flex-col items-center justify-center p-5 text-center">
+        <h1 class="text-8xl mb-3">🪷</h1>
+        <h1 class="text-3xl font-bold mb-5 drop-shadow-md px-4">ขอบคุณที่เป็นความสุขให้เค้าในทุกวันนะ</h1>
+
+        <div class="mb-8 bg-black/40 p-4 rounded-lg backdrop-blur-sm max-w-md">
+          <p>ถ้าอะไรที่เค้าทำพลาดไปหรือไม่ถูกใจเธอ เค้าอยากให้เธอบอกนะ เค้าพร้อมที่จะปรับ เพราะเค้าไม่อยากเสียเธอไป</p>
+        </div>
+
+        <button onclick="goToPage('section-home')"
+          class="px-4 py-2 w-full max-w-sm border-2 border-pink-500 rounded-lg text-pink-400 hover:bg-pink-500 hover:text-white transition-all text-center font-bold">
+          จบแล้วค้าบ เค้าหวังว่าเธอจะชอบมันนะ
+        </button>
+      </main>
+    </section>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
